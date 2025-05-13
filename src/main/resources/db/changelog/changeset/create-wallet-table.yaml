@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-wallet
+      author: Anton Buzynnikov
+      changes:
+#        - dropTable:
+#            tableName: wallet
+#            ifExists: false
+        - createTable:
+            tableName: wallet
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  defaultValueComputed: gen_random_uuid()
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: amount
+                  type: DECIMAL(15, 2)
+                  constraints:
+                    nullable: false
+                    checkConstraint: CHECK (amount >= 0)
