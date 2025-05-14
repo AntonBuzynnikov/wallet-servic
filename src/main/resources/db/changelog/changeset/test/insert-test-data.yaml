@@ -1,0 +1,86 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-test-data
+      author: Anton Buzynnikov
+      changes:
+        - insert:
+            tableName: wallet
+            columns:
+              - column:
+                  name: id
+                  value: 31c186cd-57fd-40e2-914d-e4b580dd89b1
+              - column:
+                  name: balance
+                  value: 1000
+        - insert:
+            tableName: wallet
+            columns:
+              - column:
+                  name: id
+                  value: 31c186cd-57fd-40e2-914d-e4b580dd89b2
+              - column:
+                  name: balance
+                  value: 1000
+        - insert:
+            tableName: wallet
+            columns:
+              - column:
+                  name: id
+                  value: 31c186cd-57fd-40e2-914d-e4b580dd89b3
+              - column:
+                  name: balance
+                  value: 1000
+        - insert:
+            tableName: wallet
+            columns:
+              - column:
+                  name: id
+                  value: 31c186cd-57fd-40e2-914d-e4b580dd89b4
+              - column:
+                  name: balance
+                  value: 1000
+        - insert:
+            tableName: wallet
+            columns:
+              - column:
+                  name: id
+                  value: 31c186cd-57fd-40e2-914d-e4b580dd89b5
+              - column:
+                  name: balance
+                  value: 1000
+        - insert:
+            tableName: wallet
+            columns:
+              - column:
+                  name: id
+                  value: 31c186cd-57fd-40e2-914d-e4b580dd89b6
+              - column:
+                  name: balance
+                  value: 1000
+        - insert:
+            tableName: wallet
+            columns:
+              - column:
+                  name: id
+                  value: 31c186cd-57fd-40e2-914d-e4b580dd89b7
+              - column:
+                  name: balance
+                  value: 1000
+        - insert:
+            tableName: wallet
+            columns:
+              - column:
+                  name: id
+                  value: 31c186cd-57fd-40e2-914d-e4b580dd89b8
+              - column:
+                  name: balance
+                  value: 1000
+        - insert:
+            tableName: wallet
+            columns:
+              - column:
+                  name: id
+                  value: 31c186cd-57fd-40e2-914d-e4b580dd89b9
+              - column:
+                  name: balance
+                  value: 1000

@@ -4,35 +4,40 @@ package ru.buzynnikov.wallet_service.models;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Version;
 
 import java.math.BigDecimal;
 import java.util.Objects;
 import java.util.UUID;
 
+/**
+ * Entity-класс для хранения информации о кошельке.
+ * Содержит идентификатор кошелька и текущий баланс.
+ */
 @Entity
 public class Wallet {
 
     @Id
-    @Column(name = "wallet_id")
-    private UUID walletId;
+    private UUID id;
     @Column(nullable = false)
-    private BigDecimal amount;
+    private BigDecimal balance;
 
 
-    public UUID getWalletId() {
-        return walletId;
+    public UUID getId() {
+        return id;
     }
 
-    public void setWalletId(UUID walletId) {
-        this.walletId = walletId;
+    public void setId(UUID id) {
+        this.id = id;
     }
 
-    public BigDecimal getAmount() {
-        return amount;
+
+    public BigDecimal getBalance() {
+        return balance;
     }
 
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
     }
 
     @Override
@@ -40,19 +45,19 @@ public class Wallet {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Wallet wallet = (Wallet) o;
-        return Objects.equals(walletId, wallet.walletId) && Objects.equals(amount, wallet.amount);
+        return Objects.equals(id, wallet.id) && Objects.equals(balance, wallet.balance);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(walletId, amount);
+        return Objects.hash(id, balance);
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Wallet{");
-        sb.append("walletId=").append(walletId);
-        sb.append(", amount=").append(amount);
+        sb.append("id=").append(id);
+        sb.append(", balance=").append(balance);
         sb.append('}');
         return sb.toString();
     }

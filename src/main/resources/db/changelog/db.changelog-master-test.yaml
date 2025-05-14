@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      file: classpath:db/changelog/changeset/test/create-table-wallet-test.yaml
+  - include:
+      file: classpath:db/changelog/changeset/test/insert-test-data.yaml

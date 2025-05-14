@@ -6,6 +6,9 @@ spring:
     username: anton
     password: password
     driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 30
   jpa:
     hibernate:
       ddl-auto: none
+

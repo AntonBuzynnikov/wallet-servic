@@ -1,21 +1,20 @@
 databaseChangeLog:
   - changeSet:
-      id: create-wallet
-      author: Anton Buzynnikov
+      id: create-test-table
+      author: Anton
       changes:
         - createTable:
             tableName: wallet
             columns:
               - column:
                   name: id
-                  type: UUID
-                  defaultValueComputed: gen_random_uuid()
+                  type: uuid
                   constraints:
                     primaryKey: true
                     nullable: false
               - column:
                   name: balance
-                  type: DECIMAL(15, 2)
+                  type: decimal(15,2)
                   constraints:
                     nullable: false
-                    checkConstraint: amount >= 0
+                    checkConstraint: balance >= 0
