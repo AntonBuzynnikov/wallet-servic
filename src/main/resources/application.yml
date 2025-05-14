@@ -2,12 +2,10 @@ spring:
   application:
     name: wallet-service
   datasource:
-    url: jdbc:postgresql://localhost:5432/wallet_db
-    username: anton
-    password: password
-    driver-class-name: org.postgresql.Driver
-    hikari:
-      maximum-pool-size: 30
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/wallet_db}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:postgres}
+    driver-class-name: ${SPRING_DATASOURCE_DRIVER_CLASS_NAME:org.postgresql.Driver}
   jpa:
     hibernate:
       ddl-auto: none

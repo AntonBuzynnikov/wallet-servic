@@ -49,7 +49,6 @@ public class GlobalExceptionHandler {
                 .stream()
                 .map(DefaultMessageSourceResolvable::getDefaultMessage)
                 .toList());
-        System.out.println(ResponseEntity.status(HttpStatus.BAD_REQUEST).body(problemDetail));
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(problemDetail);
     }
 

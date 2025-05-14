@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import ru.buzynnikov.wallet_service.controllers.dto.BalanceOfWalletResponse;
 import ru.buzynnikov.wallet_service.controllers.dto.ChangeAmountRequest;
 
+import ru.buzynnikov.wallet_service.controllers.dto.OperationType;
 import ru.buzynnikov.wallet_service.exceptions.NotEnoughMoneyException;
 import ru.buzynnikov.wallet_service.exceptions.WalletNotFoundException;
 import ru.buzynnikov.wallet_service.models.Wallet;
@@ -52,7 +53,7 @@ public class DefaultWalletService implements WalletService{
     @Override
     public void addDataToChangeBalance(ChangeAmountRequest request){
         Wallet wallet = getWallet(request.walletId());
-        if(wallet.getBalance().compareTo(request.amount()) < 0){
+        if((wallet.getBalance().compareTo(request.amount()) < 0) && request.operationType().equals(OperationType.WITHDRAW)){
             throw new NotEnoughMoneyException("Недостаточно средств на балансе.");
         }
         BlockingQueue<ChangeAmountRequest> queue = queueMap.computeIfAbsent(request.walletId(),key -> {
@@ -125,6 +126,8 @@ public class DefaultWalletService implements WalletService{
             default:
                 throw new IllegalArgumentException("Неподдержанный тип операции.");
         }
+
+        walletRepository.save(wallet);
     }
 
 
